@@ -1,5 +1,4 @@
-
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -22,9 +21,39 @@ const Index = () => {
       }
     };
 
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px",
+      }
+    );
+
+    // Observe all elements with animation classes
+    document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+      observer.observe(el);
+    });
+
+    // Stagger animations
+    document.querySelectorAll(".stagger-animation").forEach((container) => {
+      const children = container.children;
+      Array.from(children).forEach((child, index) => {
+        observer.observe(child);
+        (child as HTMLElement).style.transitionDelay = `${index * 0.1}s`;
+      });
+    });
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
   }, []);
 
@@ -45,9 +74,8 @@ const Index = () => {
       <Contact />
       <Footer />
 
-      {/* Scroll to Top Button */}
       <Button
-        className={`fixed bottom-8 right-8 rounded-full w-12 h-12 p-0 shadow-md bg-tech-blue hover:bg-tech-blue/90 transition-all ${
+        className={`fixed bottom-8 right-8 rounded-full w-12 h-12 p-0 shadow-lg bg-tech-blue hover:bg-tech-blue/90 transition-all duration-300 hover:scale-110 ${
           showScrollToTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
         }`}
         onClick={scrollToTop}

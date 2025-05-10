@@ -6,26 +6,26 @@ const Projects = () => {
   const projects = [
     {
       title: "Lifeflow Blood Bank",
-      description: "A comprehensive blood donation management system for connecting donors with recipients and hospitals.",
-      technologies: ["React", "Node.js", "MongoDB", "Express"],
-      image: "/lovable-uploads/bloodbank.png",  // Updated path
-      githubLink: "#",
+      description: "A blood donation system for connecting donors with recipients and hospitals.",
+      technologies: ["Node.js", "TypeScript", "JavaScript", "CSS"],
+      image: "/lovable-uploads/bloodbank.jpg",  // Updated path
+      githubLink: "https://github.com/Alihassan-aws/RhombixTechnologies_Tasks",
       liveLink: "https://lifeflowbloodbank.netlify.app/",
     },
     {
       title: "Drax Chatbot",
-      description: "Friendly conversational chatbot built with Python Flask and natural language processing.",
-      technologies: ["Python", "Flask", "TensorFlow", "NLP"],
-      image: "/lovable-uploads/drax chatbot.png",  // Updated image path
-      githubLink: "#",
+      description: "A friendly chatbot that responds naturally and helps in real time.",
+      technologies: ["Node.js", "TypeScript", "JavaScript", "CSS"],
+      image: "/lovable-uploads/drax.jpg",  // Updated image path
+      githubLink: "https://github.com/Alihassan-aws/RhombixTechnologies_Tasks",
       liveLink: "https://draxchatbot.netlify.app/",  // Updated live link
     },
     {
       title: "Background Removal",
       description: "An AI-powered tool to remove backgrounds from images automatically.",
-      technologies: ["Python", "TensorFlow", "Flask", "OpenCV"],
-      image: "/lovable-uploads/backgroundremoval.png",  // Image path for background removal
-      githubLink: "#",
+      technologies: ["Node.js", "TypeScript", "JavaScript", "CSS"],
+      image: "/lovable-uploads/backgroundremoval.jpg",  // Image path for background removal
+      githubLink: "https://github.com/Alihassan-aws/RhombixTechnologies_Tasks",
       liveLink: "https://aibackgroundremove.netlify.app/",  // Live link for background removal
     },
   ];
